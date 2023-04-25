@@ -82,7 +82,7 @@ int write_number(int isNegative, int index, char buffer[],
  * @buffer: Buffer
  * @flags: Flags
  * @width: width
- * @precision: Precision specifier
+ * @pre: Precision specifier
  * @length: Number length
  * @padding: Pading char
  * @extra_c: Extra char
@@ -90,18 +90,17 @@ int write_number(int isNegative, int index, char buffer[],
  * Return: Number of printed chars.
  */
 int write_num(int index, char buffer[],
-	int flags, int width, int precision, int length, char padding, char extra_c)
+	int flags, int width, int pre, int length, char padding, char extra_c)
 {
 	int i, pad_start = 1;
 
-	if (precision == 0 && index == BUFF_SIZE - 2
-	&& buffer[index] == '0' && width == 0)
+	if (pre == 0 && index == BUFF_SIZE - 2 && buffer[index] == '0' && width == 0)
 		return (0);
-	if (precision == 0 && index == BUFF_SIZE - 2 && buffer[index] == '0')
+	if (pre == 0 && index == BUFF_SIZE - 2 && buffer[index] == '0')
 		buffer[index] = padding = ' ';
-	if (precision > 0 && precision < length)
+	if (pre > 0 && pre < length)
 		padding = ' ';
-	while (precision > length)
+	while (pre > length)
 		buffer[--index] = '0', length++;
 	if (extra_c != 0)
 		length++;
