@@ -17,16 +17,24 @@
 #define S_SHORT 1
 
 /**
- * struct format - format struct
+ * struct fmt - token struct
  *
  * @fmt: format
- * @f: function prototype
+ * @f: associated function
  */
-struct format
+struct fmt
 {
-	char fmt;
-	int (*f)(va_list, char[], int, int, int, int);
-} format_t;
+char fmt;
+int (*f)(va_list, char[], int, int, int, int);
+};
+
+/**
+ * typedef struct fmt fmt_t - token struct
+ *
+ * @fmt: format
+ * @fm_t: associated function
+ */
+typedef struct fmt fmt_t;
 
 
 int _printf(const char *format, ...);

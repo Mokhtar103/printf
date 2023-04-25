@@ -227,10 +227,11 @@ int write_pointer(char buffer[], int index, int length,
 			buffer[--index] = 'x';
 			buffer[--index] = '0';
 			if (extra_c)
-				buffer[--ind] = extra_c;
+				buffer[--index] = extra_c;
 			return (write(1, &buffer[3], i - 3) + write(1, &buffer[index], length));
 		}
 		else if (!(flags & MINUS) && padding == '0')
+		{
 			if (extra_c)
 				buffer[--pad_start] = extra_c;
 			buffer[1] = '0';
