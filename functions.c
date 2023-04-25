@@ -16,7 +16,8 @@ int flags, int width, int precision, int size)
 {
 	char c = va_arg(types, int);
 
-	return (handle_write_char(c, buffer, flags, width, precision, size));
+return (handle_write_char(c, buffer,
+flags, width, precision, size));
 }
 
 /**
@@ -113,7 +114,7 @@ int flags, int width, int precision, int size)
 	long int num1 = va_arg(types, long int);
 	unsigned long int num2;
 
-	num1 = convert_size_number(n, size);
+	num1 = convert_size_number(num1, size);
 
 	if (num1 == 0)
 		buffer[count--] = '0';
