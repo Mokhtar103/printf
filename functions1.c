@@ -67,7 +67,7 @@ int flags, int width, int precision, int size)
 		my_num /= 8;
 	}
 
-	if (flags & F_HASH && init_num != 0)
+	if (flags & HASH && init_num != 0)
 		buffer[count--] = '0';
 
 	count++;
